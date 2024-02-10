@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:80 --workers 1 server:app
+web: flask run -p 80
