@@ -10,10 +10,11 @@ def hello():
 
     url: str = os.environ.get("SUPABASE_URL")
     key: str = os.environ.get("SUPABASE_KEY")
-    supabase: Client = create_client(url, key)
+    response: Client = create_client(url, key)
 
-    response = supabase.table('Test').select("*").execute()
+    data = response['data']  # Accessing the 'data' attribute
 
-    print(response)
+    print("Data:", data)
+    count = len(data)
 
-    return render_template('index.html', data=response)
+    return render_template('index.html', data=data, count=count)
