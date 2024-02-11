@@ -3,7 +3,7 @@ from flask import Flask, render_template
 import os
 from supabase import create_client, Client
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def hello():
